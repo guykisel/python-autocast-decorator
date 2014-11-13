@@ -108,3 +108,10 @@ def dict_to_dict_test():
 
 def tuple_to_tuple_test():
     assert return_a_type((1, 2, 3, 4)) == tuple
+
+
+def semantic_version_string_test():
+    if sys.version_info[0] < 3:
+        assert return_a_type('1.0.0') == unicode
+    else:
+        assert return_a_type('1.0.0') == str
