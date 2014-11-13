@@ -24,6 +24,11 @@ def string_to_int_test():
     assert return_a_type('12345') == int
 
 
+def string_to_complex_test():
+    assert return_a_type('5+2j') == complex
+    assert return_a_type('12345-5j') == complex
+
+
 def string_to_float_test():
     assert return_a_type('3.5') == float
     assert return_a_type('1.0') == float
