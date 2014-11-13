@@ -4,12 +4,19 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
+import sys
+
 from autocast import autocast
 
 
 @autocast
 def return_a_type(input):
     return type(input)
+
+
+def kwarg_test():
+    assert return_a_type(input='5') == int
+    assert return_a_type(input=5) == int
 
 
 def string_to_int_test():
@@ -23,15 +30,28 @@ def string_to_float_test():
 
 
 def string_to_string_test():
-    assert return_a_type('hello world') == unicode
-    assert return_a_type('Hello world!') == unicode
-    assert return_a_type('Hello') == unicode
-    assert return_a_type('Hello 12345') == unicode
-    assert return_a_type(b'hello world') == str
-    assert return_a_type(b'Hello world!') == str
-    assert return_a_type(b'Hello') == str
-    assert return_a_type(b'Hello 12345') == str
-    assert return_a_type(r'Hello 12345') == unicode
+    if sys.version_info[0] < 3:
+        assert return_a_type('hello world') == unicode
+        assert return_a_type('щ(ಥДಥщ)') == unicode
+        assert return_a_type('Hello world!') == unicode
+        assert return_a_type('Hello') == unicode
+        assert return_a_type('Hello 12345') == unicode
+        assert return_a_type(b'hello world') == str
+        assert return_a_type(b'Hello world!') == str
+        assert return_a_type(b'Hello') == str
+        assert return_a_type(b'Hello 12345') == str
+        assert return_a_type(r'Hello 12345') == unicode
+    else:
+        assert return_a_type('hello world') == str
+        assert return_a_type('щ(ಥДಥщ)') == str
+        assert return_a_type('Hello world!') == str
+        assert return_a_type('Hello') == str
+        assert return_a_type('Hello 12345') == str
+        assert return_a_type(b'hello world') == bytes
+        assert return_a_type(b'Hello world!') == bytes
+        assert return_a_type(b'Hello') == bytes
+        assert return_a_type(b'Hello 12345') == bytes
+        assert return_a_type(r'Hello 12345') == str
 
 
 def string_to_boolean_test():
