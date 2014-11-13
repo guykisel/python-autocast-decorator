@@ -51,3 +51,32 @@ def string_to_dict_test():
 
 def string_to_tuple_test():
     assert return_a_type('(1, 2, 3, 4)') == tuple
+
+
+def int_to_int_test():
+    assert return_a_type(5) == int
+    assert return_a_type(12345) == int
+
+
+def float_to_float_test():
+    assert return_a_type(3.5) == float
+    assert return_a_type(1.0) == float
+
+
+def boolean_to_boolean_test():
+    assert return_a_type(True) == bool
+    assert return_a_type(False) == bool
+
+
+def list_to_list_test():
+    assert return_a_type([1, 2, "3", 4.5]) == list
+    assert return_a_type([]) == list
+
+
+def dict_to_dict_test():
+    assert return_a_type({1: 2, "3": 4.5}) == dict
+    assert return_a_type({}) == dict
+
+
+def tuple_to_tuple_test():
+    assert return_a_type((1, 2, 3, 4)) == tuple
