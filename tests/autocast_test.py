@@ -25,6 +25,9 @@ def string_to_int_test():
 
 
 def string_to_complex_test():
+    if sys.version_info < (2, 7, 0):
+        # ast.literal_eval can't handle complex numbers in 2.6 and earlier
+        return
     assert return_a_type('5+2j') == complex
     assert return_a_type('12345-5j') == complex
 
