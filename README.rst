@@ -2,7 +2,7 @@ python-autocast-decorator
 =========================
 
 .. image:: https://travis-ci.org/guykisel/python-autocast-decorator.svg?branch=master
-:target: https://travis-ci.org/guykisel/python-autocast-decorator/builds
+    :target: https://travis-ci.org/guykisel/python-autocast-decorator/builds
 
 Decorator for automatically casting string inputs to their most likely Python data types.
 
