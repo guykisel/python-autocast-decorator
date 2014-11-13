@@ -1,6 +1,9 @@
 python-autocast-decorator
 =========================
 
+.. image:: https://travis-ci.org/guykisel/python-autocast-decorator.svg?branch=master
+:target: https://travis-ci.org/guykisel/python-autocast-decorator/builds
+
 Decorator for automatically casting string inputs to their most likely Python data types.
 
 This implementation runs ``ast.literal_eval()`` on all inputs. This is simple and reliable, but fairly slow, and therefore probably inappropriate for code that must run fast.
